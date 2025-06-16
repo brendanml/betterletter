@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+
+/* Root variables (light mode by default) */
+:root {
+  --color-background: #ffffff;
+  --color-secondary-background: rgb(255, 253, 253);
+  --color-text: #1a1a1a;
+  --color-text-background: #a0a0a0;
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+}
+
+
+/* Dark mode override (uses prefers-color-scheme) */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1a1a1a;
+    --color-secondary-background: #2a2a2a;
+    --color-text: #ffffff;
+    --color-text-background: #777575;
+    --color-primary: #747bff;
+    --color-primary-hover: #646cff;
+  }
+} */
+
+/* Base styles */
+html, body, #root {
+  height: 100%;
+  width:96%;
+  margin: auto;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  color: var(--color-primary-hover);
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Optional container to help center app content (optional) */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tailwind classes take priority where applied, but this ensures a good fallback */

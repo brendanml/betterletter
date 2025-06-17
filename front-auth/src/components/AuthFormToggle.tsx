@@ -1,24 +1,27 @@
-import type { AuthFormType } from '../types/auth';
+import { useAuthForm } from "@/contexts/AuthFormContext"; // adjust the path to your project
 
-interface AuthFormChangerProps {
-  formType: AuthFormType;
-  setFormType: (type: AuthFormType) => void;
-}
+const AuthFormToggle = () => {
+  const { formType, setFormType } = useAuthForm();
 
-const AuthFormChanger = ({ formType, setFormType }: AuthFormChangerProps) => {
   return (
-    <div className="text-center text-sm mt-4">
-      {formType === 'login' ? (
+    <div className="mt-4 text-center text-sm">
+      {formType === "login" ? (
         <>
           Don't have an account?
-          <button className="ml-2 text-blue-500 underline" onClick={() => setFormType('register')}>
+          <button
+            className="ml-2 underline text-primary hover:no-underline"
+            onClick={() => setFormType("register")} // or simply toggleFormType()
+          >
             Sign up
           </button>
         </>
       ) : (
         <>
           Already have an account?
-          <button className="ml-2 text-blue-500 underline" onClick={() => setFormType('login')}>
+          <button
+            className="ml-2 underline text-primary hover:no-underline"
+            onClick={() => setFormType("login")}
+          >
             Log in
           </button>
         </>
@@ -27,4 +30,4 @@ const AuthFormChanger = ({ formType, setFormType }: AuthFormChangerProps) => {
   );
 };
 
-export default AuthFormChanger;
+export default AuthFormToggle;

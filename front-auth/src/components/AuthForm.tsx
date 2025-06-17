@@ -1,20 +1,11 @@
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
-import type { AuthFormType } from '../types/auth';
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import { useAuthForm } from "../contexts/AuthFormContext"; // path as appropriate
 
-interface Props {
-  formType: AuthFormType;
-}
+const AuthFormSwitcher = () => {
+  const { formType } = useAuthForm();
 
-const AuthFormSwitcher = ({ formType }: Props) => {
-  switch (formType) {
-    case 'login':
-      return <LoginForm />;
-    case 'register':
-      return <RegisterForm />;
-    default:
-      return null;
-  }
+  return formType === "login" ? <LoginForm /> : <RegisterForm />;
 };
 
 export default AuthFormSwitcher;

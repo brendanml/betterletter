@@ -14,7 +14,6 @@ import { Request, Response, NextFunction } from 'express';
 export const newUserParser = (req: Request, _res: Response, next: NextFunction) => {
   try {
     newUserSchema.parse(req.body);
-    console.log('Parsed body:', req.body);
     next();
   } catch (error: unknown) {
     next(error);
@@ -26,7 +25,6 @@ export const newUserParser = (req: Request, _res: Response, next: NextFunction) 
 export const loginUserParser = (req: Request, _res: Response, next: NextFunction) => {
   try {
     loginUserSchema.parse(req.body);
-    console.log('Parsed body:', req.body);
     next();
   } catch (error: unknown) {
     next(error);

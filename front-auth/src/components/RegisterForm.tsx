@@ -7,6 +7,7 @@ import {createUser} from "../services/UserService"
 import { newUserSchema } from "../schemas/userSchema";
 import axios from "axios"
 import { useTimedNotification } from "@/hooks/useTimedNotification"
+import { useAuthForm } from "@/contexts/AuthFormContext"
 
 
 
@@ -26,6 +27,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 function RegisterForm() {
   const { setTimedNotification } = useTimedNotification()
+  const { setFormType } = useAuthForm() // Access the context to change form type
 
   const form = useForm<z.infer<typeof newUserSchema>>({
     resolver: zodResolver(newUserSchema),
@@ -43,8 +45,7 @@ function RegisterForm() {
       const response = await createUser(values)
       console.log('User created successfully:', response)
       // Optionally, you can reset the form or redirect the user
-      form.reset()
-
+      setFormType('login'); // Switch to login form after successful registration
     } catch (err: unknown) {
     // 👇 ONE-LINER that works for plain string or { error: "…" } payloads
       const msg = axios.isAxiosError(err)
@@ -66,7 +67,7 @@ function RegisterForm() {
               <FormControl>
                 <Input placeholder="Enter your username." {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-left" />
             </FormItem>
           )}
         />
@@ -80,7 +81,7 @@ function RegisterForm() {
                 <Input placeholder="Enter your email." {...field} />
               </FormControl>
 
-              <FormMessage />
+              <FormMessage className="text-left" />
             </FormItem>
           )}
         />
@@ -93,7 +94,7 @@ function RegisterForm() {
               <FormControl>
                 <Input placeholder="Enter your password." type="password"{...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-left" />
             </FormItem>
           )}
         />
@@ -109,13 +110,13 @@ function RegisterForm() {
                   onCheckedChange={field.onChange}
                 />
               </FormControl>
-              <FormLabel htmlFor="consent" className="cursor-pointer text-xs text-[var(--color-text-background)] text-left">
+              <FormLabel htmlFor="consent" className="cursor-pointer text-xs text-[var(--muted)] text-left">
                 By registering, I consent to the processing of my personal information in accordance with the Privacy Policy.
               </FormLabel>
             </FormItem>
           )}
         />
-        <Button type="submit" className="rounded-full w-full h-12 text-md">Sign up</Button>
+        <Button type="submit" className="btn-signin">Sign up</Button>
       </form>
     </Form>
   )

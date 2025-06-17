@@ -77,7 +77,6 @@ router.post('/login', loginUserParser, (req: Request<unknown, unknown, LoginUser
       if (loginErr) {
         return next(loginErr);
       }
-      console.log('HEREEEE logged in:', user);
       const safeUser: SafeUser = {
         username: user.username,
         email: user.email,

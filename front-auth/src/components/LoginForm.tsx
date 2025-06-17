@@ -60,12 +60,12 @@ function LoginForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email..." {...field} />
+                <Input placeholder="Enter your email." {...field} />
               </FormControl>
               {/* <FormDescription>
                 This is your email address. It will not be shared with anyone.
               </FormDescription> */}
-              <FormMessage />
+              <FormMessage className="text-left"/>
             </FormItem>
           )}
         />
@@ -76,12 +76,12 @@ function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Password..." type="password"{...field} />
+                <Input placeholder="Enter your password." type="password"{...field} />
               </FormControl>
               {/* <FormDescription>
                 You will use this to login, do not be share it with anyone.
               </FormDescription> */}
-              <FormMessage />
+              <FormMessage className="text-left" />
             </FormItem>
           )}
         />
@@ -93,11 +93,11 @@ function LoginForm() {
               <FormControl>
                 <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
-              <FormLabel className="text-sm">Remember me</FormLabel>
+              <FormLabel className="text-sm font-light">Remember me</FormLabel>
             </FormItem>
           )}
         />
-        <Button className="rounded-full w-full h-12 text-md" type="submit">Log in</Button>
+        <Button className="btn-signin" type="submit">Log in</Button>
       </form>
     </Form>
   )

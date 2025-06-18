@@ -2,11 +2,14 @@
 
 # in progress
 
-- get some early form of prompt working
+- setup backend to use chatgpt api
 - stylize login/reg with google uniformly
 
 # to do
 
+- limit requests by account
+  - protect the endpoint
+  - some property on user account of how many?
 - fully test routes
 - redirect to "email has been sent" component
 - add errors to email/username field
@@ -28,6 +31,10 @@
 # completed
 
 # Learned/Completed
+
+## Jun 18
+
+- get some early form of prompt working
 
 ## Jun 17
 

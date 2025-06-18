@@ -7,6 +7,7 @@ import { connectDb } from './utils/db';
 import passport from 'passport';
 
 import userRouter from './routes/authRouter';
+import coverletterRouter from './routes/coverletterRouter';
 
 
 const app = express();
@@ -37,11 +38,7 @@ app.use(logger);
 
 app.use('/api/auth', userRouter);
 
-app.post('/api/openai', (_req, res) => {
-  // Handle OpenAI requests here
-  console.log('OpenAI endpoint hit');
-  res.status(200).send("HIT IT");
-});
+app.use('/api/cover-letter', coverletterRouter);
 
 // ERROR HANDLING
 app.use(errorHandler);

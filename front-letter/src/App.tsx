@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import PromptPage from './pages/PromptPage'
 
 
 const App = () =>{
@@ -12,10 +13,12 @@ const App = () =>{
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/prompt" element={<PromptPage />} />
           <Route path="/about" element={<h1>About</h1>} />
           <Route path="/contact" element={<h1>Contact</h1>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage/>} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </BrowserRouter>
     </>

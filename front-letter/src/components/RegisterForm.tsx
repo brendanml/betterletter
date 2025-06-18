@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import {createUser} from "../services/UserService"
+import {createUser} from "../services/userService"
 import { newUserSchema } from "../schemas/userSchema";
 import axios from "axios"
 import { useTimedNotification } from "@/hooks/useTimedNotification"

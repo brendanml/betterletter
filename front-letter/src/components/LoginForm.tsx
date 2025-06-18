@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 
-import {loginUser} from "../services/UserService"
+import {loginUser} from "../services/userService"
 import { loginUserSchema } from "../schemas/userSchema";
 import { useNavigate } from "react-router-dom"
 import { useTimedNotification } from "../hooks/useTimedNotification"

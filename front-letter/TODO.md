@@ -2,6 +2,7 @@
 
 # in progress
 
+- get some early form of prompt working
 - stylize login/reg with google uniformly
 
 # to do

@@ -1,14 +1,17 @@
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {useState} from "react";
+import {promptOpenai} from "@/services/gptService";
 
 const PromptPage = () => {
 
   const [prompt, setPrompt] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Submitted prompt:", prompt);
+    const res = await promptOpenai(prompt);
+    console.log("Response from OpenAI:", res);
   };
 
   return (

@@ -37,6 +37,12 @@ app.use(logger);
 
 app.use('/api/auth', userRouter);
 
+app.post('/api/openai', (_req, res) => {
+  // Handle OpenAI requests here
+  console.log('OpenAI endpoint hit');
+  res.status(200).send("HIT IT");
+});
+
 // ERROR HANDLING
 app.use(errorHandler);
 // START SERVER

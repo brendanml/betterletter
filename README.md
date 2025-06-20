@@ -1,7 +1,3 @@
-# Authify
+# Better Letter
 
-- A minimal but safe authentication template for future projects.
-
-## technologies
-
-- typescript
+- An openai powered cover letter generator.

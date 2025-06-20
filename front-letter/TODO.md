@@ -1,36 +1,31 @@
-# Authify
+# Better Letter
 
 # in progress
+- user structure
+  - account details
+    - name
+    - username
+    - email
+  - cover letter options
+    - contact info (if doing printable finished pdf)
+      - name, email, phone 
+    - preferred style
+      - non-robotic professional
+      - robot
+    - technologies
+      - main development stack
+      - excellent, good, moderate, familiar
+
+# soon
+- ad scraper
+- openresume parser
+
+# complete
+
+
+## Jun 20
 
 - setup backend to use chatgpt api
-- stylize login/reg with google uniformly
-
-# to do
-
-- limit requests by account
-  - protect the endpoint
-  - some property on user account of how many?
-- fully test routes
-- redirect to "email has been sent" component
-- add errors to email/username field
-- integrate passport for google
-- forgot password
-- uniformize color variables
-- incorporate tailwind templates
-- create privacy policy popout
-
-# backlog
-
-- update readme
-- dockerize
-- create documentation page
-- deploy on azure
-
-# testing
-
-# completed
-
-# Learned/Completed
 
 ## Jun 18
 

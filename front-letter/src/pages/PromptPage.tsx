@@ -32,14 +32,16 @@ const PromptPage = () => {
 
           <Textarea
             placeholder="Type your prompt here..."
-            className="mt-4 w-full h-32"
+            className="mt-4 w-full h-50
+            "
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             />
             <Button className="mt-4" type="submit">submit</Button>  
-            </form>s
+            </form>
         </div>
       </div>
+
 
       <div>
         <h1>Output</h1>

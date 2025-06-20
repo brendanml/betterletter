@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import PromptPage from './pages/PromptPage'
+import AccountPage from './pages/AccountPage'
 
 
 const App = () =>{
@@ -14,6 +15,7 @@ const App = () =>{
       <BrowserRouter>
         <Routes>
           <Route path="/prompt" element={<PromptPage />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/about" element={<h1>About</h1>} />
           <Route path="/contact" element={<h1>Contact</h1>} />
           <Route path="/login" element={<LoginPage />} />

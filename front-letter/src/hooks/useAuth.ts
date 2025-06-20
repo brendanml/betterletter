@@ -1,12 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-export interface Auth {
-  username: string;
-  email: string;
-}
+import type { SafeUser } from '@/types/user';
 
-const getAuth = async (): Promise<Auth> => {
+const getAuth = async (): Promise<SafeUser> => {
   console.log('Fetching auth data...');
   const res = await axios.get('/api/auth/user', {
     withCredentials: true,
@@ -15,7 +12,7 @@ const getAuth = async (): Promise<Auth> => {
 }
 
 export const useAuth = () => {
-  return useQuery<Auth>({
+  return useQuery<SafeUser>({
     queryKey: ['auth'],
     queryFn: getAuth,
     refetchOnWindowFocus: false,

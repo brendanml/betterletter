@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import PromptPage from './pages/PromptPage'
 import AccountPage from './pages/AccountPage'
+import Navbar from './components/Navbar'
 
 
 const App = () =>{
@@ -13,6 +14,7 @@ const App = () =>{
   return (
     <>
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/prompt" element={<PromptPage />} />
           <Route path="/account" element={<AccountPage />} />

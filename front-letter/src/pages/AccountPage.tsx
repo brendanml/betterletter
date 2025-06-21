@@ -1,6 +1,6 @@
 // AccountPage.tsx
 import { useAuth } from "@/hooks/useAuth";
-import { useForm } from "react-hook-form"
+// import { useForm } from "react-hook-form"
 
 const AccountPage = () => {
   // avoid shadowing the type name; pick something like `user`

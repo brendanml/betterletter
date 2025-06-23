@@ -1,0 +1,64 @@
+Brendan Lynch
+Full-Stack Developer
+hello@brendanml.com
+250-701-5417
+Waterloo, ON
+brendanml.com
+github/brendanml
+SUMMARY
+Passionate web developer focused on building single-page apps that enhance user experience. All ideas are data-modeled and
+wireframed in Figma. I follow WCAG guidelines to improve accessibility and SEO.
+EDUCATION
+University of Victoria
+BSc in Computer Science
+Apr. 2021 - Jun. 2025
+Victoria, BC
+PROJECTS
+Rebiblio: Book Exchange Website.
+Lead Full-Stack Engineer
+• Reduced downtimes by 80% by implementing end-to-end tests with Playwright, ensuring
+stability while scaling.
+• Improved frontend responsiveness by 200% by migrating the frontend to React.
+• Reduced custom CSS code by 70% by migrating to Tailwind CSS and Shadcn, improving
+maintainability and consistency.
+• Refactored frontend codebase by introducing context and hooks architecture, reducing duplicated
+logic by 50% and improving state management clarity.
+• Integrated the Google Books and Google Maps REST APIs, increasing uptime by 200%.
+• Improved MongoDB write performance by 60% by replacing multiple individual operations with
+bulk writes.
+Mar. 2025 - Apr. 2025
+Waterloo, ON
+Dafig: Lego Minifigure Pricing Analytics Website.
+Backend Engineer
+• Improved pricing accuracy by replacing outdated JSON data with real-time updates from the
+BrickLink REST API.
+• Migrated Python web scraping microservice from Selenium to asynchronous HTML sessions
+with BeautifulSoup4 to fetch data not available via API.
+Dec. 2024 - Feb. 2025
+Victoria, BC
+WORK EXPERIENCE
+Canada Post Company
+Letter Carrier
+• Improved delivery times by 160%, reducing parcel wait times from 5 PM to no later than 2 PM.
+• Demonstrated strong time management, completing high-volume delivery routes within strict
+deadlines.
+• Proven ability to work independently and reliably in a self-managed, performance-based role.
+• Handled increased workloads during peak seasons, staying on schedule and maintaining accuracy
+under pressure.
+Jun. 2020 - Sept. 2023
+Victoria, BC
+CERTIFICATIONS
+University of Helsinki
+Full Stack Open
+• React, Node.js, Express.js, MongoDB, Redux, React Router, Contexts, Custom Hooks,
+Playwright, Vitest, GraphQL, CI/CD Pipelines.
+Sept. 2024 - Feb. 2025
+Online
+SKILLS
+• Languages: JavaScript, TypeScript, Python, C/C++, HTML, CSS.
+• Frameworks: React, Node.js, Express.js, Shadcn, Tailwind CSS.
+• Databases: MongoDB, SQL.
+• Tools: Git, Postman, Docker.
+• Testing: Playwright, Vitest.
+• APIs: REST, GraphQL.
+

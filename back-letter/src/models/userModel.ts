@@ -40,8 +40,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 2,
-  }
-
+  },
+  preferences: {
+    introduction: {
+      type: String,
+    },
+    signOff: {
+      type: String,
+    },
+    tone: {
+      type: String,
+    }
+  },
 })
 
 const User = mongoose.model('User', userSchema);

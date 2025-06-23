@@ -2,55 +2,16 @@
 
 # in progress
 
-- user structure
-  - better letter account details
-    - name
-    - username
-    - email
-  - cover letter options
-    - preferred style
-      - non-robotic professional
-      - robot
-    - technologies
-      - main development stack
-      - excellent, good, moderate, familiar
-        <h2>Account Information</h2>
-  <ul>
-    <li>login email</li>
-    <li>username</li>
-    <li>password</li>
-    <li>first name</li>
-    <li>last name</li>
-  </ul>
-  </div>
-
-  <div>
-
-  <h2 className="text-lg font-bold">Technologies</h2>
-
-    </div>
-
-    <div>
-  <h2 className="text-lg font-bold">certifications</h2>
-    
-  </div>
-
-  <div>
-    <h2 className="text-lg font-bold">Style Preferences</h2>
-    <ul>
-      <li>Greeting</li>
-      <li>Sign off</li>
-      <li>Tone</li>
-    </ul>
-  </div>
-</div>
-
 # soon
 
-- ad scraper
-- openresume parser
+
 
 # complete
+
+
+## June 23
+- updated schemas
+- set up pymupdf for resume pdf extraction
 
 ## Jun 20
 

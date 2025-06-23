@@ -22,9 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+**/.venv*
 
 # environment variables
 **/.env
 **/.env.*
 **/node_modules/
+
 

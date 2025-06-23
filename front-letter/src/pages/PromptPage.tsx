@@ -2,6 +2,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {useState} from "react";
 import {generateCoverLetter} from "@/services/coverLetterService";
+import PDFUploader from "@/components/PDFUploader";
 
 const PromptPage = () => {
 
@@ -30,6 +31,7 @@ const PromptPage = () => {
           <p>This is the prompt page content.</p>
           <form onSubmit={handleSubmit}>
 
+            <PDFUploader />
           <Textarea
             placeholder="Type your prompt here..."
             className="mt-4 w-full h-50
@@ -53,6 +55,7 @@ const PromptPage = () => {
           readOnly
         />
       </div>
+
     </div>
   );
 }

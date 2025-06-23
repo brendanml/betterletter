@@ -7,11 +7,15 @@ import { connectDb } from './utils/db';
 import passport from 'passport';
 
 import userRouter from './routes/authRouter';
+
 import coverletterRouter from './routes/coverletterRouter';
+
+import cors from 'cors';
 
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use(sessionMiddleware)

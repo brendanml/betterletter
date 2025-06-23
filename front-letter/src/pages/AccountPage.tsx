@@ -1,6 +1,7 @@
 // AccountPage.tsx
 import { useAuth } from "@/hooks/useAuth";
 // import { useForm } from "react-hook-form"
+import AccountUpdateForm from "@/components/forms/AccountUpdateForm";
 
 const AccountPage = () => {
   // avoid shadowing the type name; pick something like `user`
@@ -18,10 +19,12 @@ const AccountPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-start h-screen">
       <h1 className="text-2xl font-bold mb-4">Account Page</h1>
       <p className="text-lg">Welcome, {user.username}</p>
       <p className="text-lg">Email: {user.email}</p>
+
+      <AccountUpdateForm/>
     </div>
   );
 };

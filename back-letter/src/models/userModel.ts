@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    trim: true,
+    lowercase: true,
+    validate: {
+      validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      message: props => `${props.value} is not a valid email!`,
+    }
   },
   password: {
     type: String,
@@ -25,10 +31,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  technologies: {
-    type: [String],
+  firstName: {
+    type: String,
+    required: true,
+    minlength: 2,
   },
-  
+  lastName: {
+    type: String,
+    required: true,
+    minlength: 2,
+  }
+
 })
 
 const User = mongoose.model('User', userSchema);

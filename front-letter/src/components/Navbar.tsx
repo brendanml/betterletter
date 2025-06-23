@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <nav className="flex justify-between p-4 bg-gray-200 text-black">
       <div className="text-lg font-bold">Admin Panel</div>
       <div className="space-x-4">
         <Link to="/" className={`text-white ${location.pathname === '/' ? 'underline' : ''}`}>
@@ -17,12 +17,15 @@ const Navbar = () => {
         <Link to="/login" className={`text-white ${location.pathname === '/login' ? 'underline' : ''}`}>
           Login
         </Link>
+        <Link to="/account" className={`text-white ${location.pathname === '/account' ? 'underline' : ''}`}>
+          Account
+        </Link>
         <button 
           onClick={async () => {
             await logoutUser();
             window.location.href = '/login'; // Redirect to login after logout
           }} 
-          className="text-white"
+          className="text-black"
         >
           Logout
         </button>

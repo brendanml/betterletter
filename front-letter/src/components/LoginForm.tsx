@@ -1,11 +1,11 @@
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
 
 
 import {loginUser} from "../services/userService"
 import { loginUserSchema } from "../schemas/userSchema";
+import type { LoginUser } from "@/types/user"
 import { useNavigate } from "react-router-dom"
 import { useTimedNotification } from "../hooks/useTimedNotification"
 
@@ -30,7 +30,7 @@ function LoginForm() {
   const { setTimedNotification } = useTimedNotification()
 
 
-  const form = useForm<z.infer<typeof loginUserSchema>>({
+  const form = useForm<LoginUser>({
     resolver: zodResolver(loginUserSchema),
     defaultValues: {
       email: "",
@@ -38,10 +38,10 @@ function LoginForm() {
     },
   })
 
-  const onSubmit = async (values: z.infer<typeof loginUserSchema>) =>{
-    console.log(values)
+  const onSubmit = async (user: LoginUser) =>{
+    console.log(user)
     try {
-      const response = await loginUser(values)
+      const response = await loginUser(user)
       console.log('User logged in successfully:', response)
       // Optionally, you can reset the form or redirect the user
       setTimedNotification('User logged in successfully', 'success')

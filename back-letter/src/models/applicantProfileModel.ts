@@ -3,21 +3,12 @@ import mongoose from "mongoose";
 const applicantProfileSchema = new mongoose.Schema({
   email: {
     type: String,
-    unique: true,
     trim: true,
     lowercase: true,
-    validate: {
-      validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-      message: props => `${props.value} is not a valid email!`,
-    }
   },
   phoneNumber: {
     type: String,
     trim: true,
-    validate: {
-      validator: (v) => /^\+?[1-9]\d{1,14}$/.test(v),
-      message: props => `${props.value} is not a valid phone number!`,
-    }
   },
   desiredJob: {
     type: String,
@@ -41,12 +32,10 @@ const applicantProfileSchema = new mongoose.Schema({
     [{
       name: {
         type: String,
-        required: true,
         trim: true,
       },
       technologies: {
         type: [String],
-        required: true,
       },
       classification: {
         type: String,
@@ -56,29 +45,24 @@ const applicantProfileSchema = new mongoose.Schema({
   skills: [{
     name: {
       type: String,
-      required: true,
       trim: true,
     },
     yearsOfExperience: {
       type: Number,
-      required: true,
       min: 0,
     },
     classification: {
       type: String,
       enum: ['Programming Language', 'Framework', 'Library', 'Tool', 'Soft Skill', 'Other'],
-      required: true,
     },
   }],
   education: [{
     institution: {
       type: String,
-      required: true,
       trim: true,
     },
     degree: {
       type: String,
-      required: true,
       trim: true,
     },
     courseWork: {
@@ -87,8 +71,6 @@ const applicantProfileSchema = new mongoose.Schema({
     },
     graduationYear: {
       type: Number,
-      min: 1900,
-      max: new Date().getFullYear() + 4, // Allowing for future graduation
     },
     graduated: {
       type: Boolean,
@@ -122,7 +104,7 @@ export const jsonCandidateProfile = {
     {
       "name": "",
       "yearsOfExperience": 0,
-      "classification": ""
+      "classification": "'Programming Language' OR 'Framework' OR 'Library' OR 'Tool' OR 'Soft Skill' OR 'Other'"
     }
   ],
   "education": [

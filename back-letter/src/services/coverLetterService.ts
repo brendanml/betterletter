@@ -109,6 +109,8 @@ import { jsonCandidateProfile } from "../models/applicantProfileModel";
 //   return resumeText
 // }
 
+
+
 export const generateCandidateProfileObject = async (
   resume: string
 ) => {

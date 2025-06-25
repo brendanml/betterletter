@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
+
   username: {
     type: String,
     required: true,
@@ -40,6 +41,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 2,
+  },
+  candidateProfile: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
   },
   preferences: {
     introduction: {

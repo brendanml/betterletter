@@ -50,7 +50,10 @@ const userSchema = new mongoose.Schema({
     },
     tone: {
       type: String,
-    }
+    },
+    literacyLevel: {
+      type: String,
+    },
   },
 })
 

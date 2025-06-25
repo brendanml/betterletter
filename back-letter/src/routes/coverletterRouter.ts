@@ -1,4 +1,4 @@
-import { generateCoverletter } from '../services/coverLetterService';
+import { generateCoverletter, generateCandidateProfileObject } from '../services/coverLetterService';
 
 import { BadRequestError } from '../utils/errors';
 
@@ -42,6 +42,9 @@ router.post(
       throw new BadRequestError('Failed to parse PDF content');
     }
 
+    const candidateProfile = await generateCandidateProfileObject(parsed.text);
+    console.log('Generated Candidate Profile:', candidateProfile);
+
     // You can structure a prompt using parsed.text + jobPosting + userRequests
     const openAiContent = {
       resume: parsed.text,
@@ -61,18 +64,6 @@ router.post(
 );
 
 
-
-
-// router.post('/generate', async (req, res) => {
-//   try {
-//     const prompt = req.body.prompt;
-//     const coverLetter = await generateCoverletter(prompt);
-//     res.status(200).json({ coverLetter });
-//   } catch (error) {
-//     console.error('Error generating cover letter:', error);
-//     res.status(500).json({ error: 'Failed to generate cover letter' });
-//   }
-// });
 
 
 export default router;

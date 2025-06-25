@@ -98,8 +98,6 @@ const PromptPage = () => {
           </Form>
         </div>
       </div>
-
-
       <div>
         <h1>Output</h1>
         <Textarea

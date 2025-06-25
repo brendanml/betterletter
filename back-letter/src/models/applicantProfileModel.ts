@@ -19,30 +19,124 @@ const applicantProfileSchema = new mongoose.Schema({
       message: props => `${props.value} is not a valid phone number!`,
     }
   },
-  designation: {
+  desiredJob: {
     type: String,
     trim: true,
   },
-  jobs: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Job",
-  },
-  projects: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Project",
-  },
-  skills: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Skill",
-  },
-  education: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "Education",
-  },
+  jobs: [{
+    title: {
+      type: String,
+      trim: true,
+    },
+    company: {
+      type: String,
+      trim: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+    }
+  }],
+  projects:
+    [{
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      technologies: {
+        type: [String],
+        required: true,
+      },
+      classification: {
+        type: String,
+      }
+    }]
+  ,
+  skills: [{
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    yearsOfExperience: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    classification: {
+      type: String,
+      enum: ['Programming Language', 'Framework', 'Library', 'Tool', 'Soft Skill', 'Other'],
+      required: true,
+    },
+  }],
+  education: [{
+    institution: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    degree: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    courseWork: {
+      type: String,
+      trim: true,
+    },
+    graduationYear: {
+      type: Number,
+      min: 1900,
+      max: new Date().getFullYear() + 4, // Allowing for future graduation
+    },
+    graduated: {
+      type: Boolean,
+      default: false,
+    }
+  }],
   certifications: {
     type: [String],
   }
 });
+
+export const jsonCandidateProfile = {
+  "email": "",
+  "phoneNumber": "",
+  "desiredJob": "",
+  "jobs": [
+    {
+      "title": "",
+      "company": "",
+      "description": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "",
+      "technologies": [""],
+      "classification": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "",
+      "yearsOfExperience": 0,
+      "classification": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": "",
+      "courseWork": "",
+      "graduationYear": 0,
+      "graduated": false
+    }
+  ],
+  "certifications": [""]
+}
+
 
 const ApplicantProfile = mongoose.model("ApplicantProfile", applicantProfileSchema);
 export default ApplicantProfile;

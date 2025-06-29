@@ -15,3 +15,8 @@ export const logoutUser = async () => {
   const res = await axios.get('/api/auth/logout');
   return res.data;
 }
+
+export const getApplicantProfile = async () => {
+  const res = await axios.get("/api/user/profile")
+  return res.data
+}

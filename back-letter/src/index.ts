@@ -6,11 +6,13 @@ import { connectDb } from './utils/db';
 
 import passport from 'passport';
 
-import userRouter from './routes/authRouter';
+import authRouter from './routes/authRouter';
 
 import coverletterRouter from './routes/coverletterRouter';
 
+import userRouter from './routes/userRouter';
 import cors from 'cors';
+
 
 
 const app = express();
@@ -40,7 +42,9 @@ app.use(logger);
 
 // ROUTES
 
-app.use('/api/auth', userRouter);
+app.use('/api/auth', authRouter);
+
+app.use('/api/user', userRouter);
 
 app.use('/api/cover-letter', coverletterRouter);
 

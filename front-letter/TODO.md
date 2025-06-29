@@ -4,12 +4,14 @@
 
 # soon
 
-
-
 # complete
 
+## June 25
+
+- ....
 
 ## June 23
+
 - updated schemas
 - set up pymupdf for resume pdf extraction
 

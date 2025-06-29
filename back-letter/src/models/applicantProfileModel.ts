@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const applicantProfileSchema = new mongoose.Schema({
+export const applicantProfileSchema = new mongoose.Schema({
   email: {
     type: String,
     trim: true,
@@ -82,7 +82,7 @@ const applicantProfileSchema = new mongoose.Schema({
   }
 });
 
-export const jsonCandidateProfile = {
+export const jsonApplicantProfile = {
   "email": "",
   "phoneNumber": "",
   "desiredJob": "",

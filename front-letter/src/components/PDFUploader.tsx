@@ -24,12 +24,12 @@ const PDFUploader = ({ value, onFileChange }: PDFUploaderProps) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <div className="p-4 border rounded-lg shadow-md bg-white">
-      <h2 className="text-xl font-semibold mb-4">Upload your resume (PDF)</h2>
+    <div className="p-4 border rounded-lg shadow-md bg-white flex flex-col items-start">
+      <h2 className="text-base font-semibold">Upload your resume (PDF)</h2>
       <div
         {...getRootProps({
           className:
-            'mt-5 h-min-30 border-2 border-dashed border-gray-300 p-4 rounded-lg hover:bg-gray-100 cursor-pointer',
+            'mt-5 h-min-30 w-full border-2 border-dashed border-gray-300 p-4 rounded-lg hover:bg-gray-100 cursor-pointer',
         })}
       >
         <input {...getInputProps()} />
@@ -42,8 +42,8 @@ const PDFUploader = ({ value, onFileChange }: PDFUploaderProps) => {
         )}
 
         {value && (
-          <div className="mt-2">
-            <strong>Selected file:</strong> {value.name} ({(value.size / 1024).toFixed(2)} KB)
+          <div className="mt-2 flex flex-row justify-start items-center gap-3">
+            <img src={pdf} alt="" className='h-6'/> {value.name} ({(value.size / 1024).toFixed(2)} KB)
                 <img src={remove} alt="Remove Icon" className="inline-block w-8 h-8 ml-2 cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();   // prevent the dropzone click

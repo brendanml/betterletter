@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
 
   username: {
     type: String,
-    required: true,
     unique: true,
     minlength: 2,
   },
@@ -34,17 +33,15 @@ const userSchema = new mongoose.Schema({
   },
   firstName: {
     type: String,
-    required: true,
     minlength: 2,
   },
   lastName: {
     type: String,
-    required: true,
     minlength: 2,
   },
-  candidateProfile: {
+  applicantProfile: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    ref: 'ApplicantProfile',
   },
   preferences: {
     introduction: {
@@ -62,5 +59,7 @@ const userSchema = new mongoose.Schema({
   },
 })
 
-const User = mongoose.model('User', userSchema);
-export default User;
+import { HydratedDocument, InferSchemaType, model } from 'mongoose';
+export type UserType = InferSchemaType<typeof userSchema>;
+export type UserDoc = HydratedDocument<UserType>;
+export default model<UserDoc>('User', userSchema);

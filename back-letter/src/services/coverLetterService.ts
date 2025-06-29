@@ -103,15 +103,15 @@ export const generateCoverletter = async (
 };
 
 
-import { jsonCandidateProfile } from "../models/applicantProfileModel";
+import { jsonApplicantProfile } from "../models/applicantProfileModel";
 
-// const createCandidateProfile = (resumeText: string) => {
+// const createApplicantProfile = (resumeText: string) => {
 //   return resumeText
 // }
 
 
 
-export const generateCandidateProfileObject = async (
+export const generateApplicantProfileObject = async (
   resume: string
 ) => {
 
@@ -127,7 +127,7 @@ export const generateCandidateProfileObject = async (
     input: [
       {
         role: "system",
-        content: `You are an expert in creating candidate profiles based on resumes. Your task is to create a candidate profile object based on the resume text provided. The profile should be this structure + ${JSON.stringify(jsonCandidateProfile)}`
+        content: `You are an expert in creating Applicant profiles based on resumes. Your task is to create a Applicant profile object based on the resume text provided. The profile should be this structure + ${JSON.stringify(jsonApplicantProfile)}`
       },
       {
         role: "user",

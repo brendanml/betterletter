@@ -3,6 +3,8 @@ import { useAuth } from "@/hooks/useAuth";
 // import { useForm } from "react-hook-form"
 import AccountUpdateForm from "@/components/forms/AccountUpdateForm";
 
+import ApplicantProfile from "@/components/ApplicantProfile";
+
 const AccountPage = () => {
   // avoid shadowing the type name; pick something like `user`
   const { data: user , isLoading, isError } = useAuth();
@@ -19,12 +21,13 @@ const AccountPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-start h-screen">
+    <div className="flex flex-col justify-start p-4 gap-4">
       <h1 className="text-2xl font-bold mb-4">Account Page</h1>
       <p className="text-lg">Welcome, {user.username}</p>
       <p className="text-lg">Email: {user.email}</p>
 
       <AccountUpdateForm/>
+      <ApplicantProfile />
     </div>
   );
 };

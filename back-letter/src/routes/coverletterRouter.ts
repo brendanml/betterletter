@@ -1,4 +1,4 @@
-import { generateCoverletter, generateCandidateProfileObject } from '../services/coverLetterService';
+import { generateCoverletter, generateApplicantProfileObject } from '../services/coverLetterService';
 import ApplicantProfile from '../models/applicantProfileModel';
 
 import { BadRequestError } from '../utils/errors';
@@ -24,7 +24,7 @@ type CoverLetterResponse = {
 };
 
 
-const saveCandidateProfile = async (
+const saveApplicantProfile = async (
   profileText: string,
   userId: string
 ) => {
@@ -34,17 +34,15 @@ const saveCandidateProfile = async (
     const profile = await ApplicantProfile.create(profileObj);
 
     // 2. Link profile _id to the user document
-    await User.findByIdAndUpdate(
-      userId,
-      { candidateProfile: profile._id },
-      { new: true }
-    );
+    await User.findByIdAndUpdate(userId, {
+      $set: { applicantProfile: profile._id },
+    });
 
-    console.log('Candidate profile saved and linked');
+    console.log('Applicant profile saved and linked');
     return profile;
   } catch (error) {
-    console.error('Error saving candidate profile:', error);
-    throw new BadRequestError('Failed to save candidate profile');
+    console.error('Error saving Applicant profile:', error);
+    throw new BadRequestError('Failed to save Applicant profile');
   }
 };
 
@@ -74,13 +72,13 @@ router.post(
     }
 
 
-    const candidateProfile = await generateCandidateProfileObject(parsed.text);
-    console.log('Generated Candidate Profile:', candidateProfile);
-    console.log(typeof candidateProfile);
-    console.log(req.user)
-    const savedProfile = await saveCandidateProfile(
-      candidateProfile,          // JSON string
-      String((req.user as any)._id) // user ID from auth middleware
+    const ApplicantProfile = await generateApplicantProfileObject(parsed.text);
+    console.log('Generated Applicant Profile:', ApplicantProfile);
+    console.log(typeof ApplicantProfile);
+    const userId = req.user?._id;
+    const savedProfile = await saveApplicantProfile(
+      ApplicantProfile,          // JSON string
+      String(userId)
     );
 
     // optional: log or use savedProfile if needed

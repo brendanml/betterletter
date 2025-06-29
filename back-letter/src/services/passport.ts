@@ -74,7 +74,6 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  // @ts-ignore
   done(null, user._id);
 });
 ``

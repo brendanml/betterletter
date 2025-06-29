@@ -10,6 +10,10 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
   }
 }

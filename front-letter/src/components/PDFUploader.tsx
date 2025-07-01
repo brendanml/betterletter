@@ -24,7 +24,7 @@ const PDFUploader = ({ value, onFileChange }: PDFUploaderProps) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <div className="p-4 border rounded-lg shadow-md bg-white flex flex-col items-start">
+    <div className="w-full">
       <h2 className="text-base font-semibold">Upload your resume (PDF)</h2>
       <div
         {...getRootProps({
@@ -34,7 +34,7 @@ const PDFUploader = ({ value, onFileChange }: PDFUploaderProps) => {
       >
         <input {...getInputProps()} />
         {!value && (
-          <div>
+          <div className='text-center'>
             <img src={pdf} alt="PDF Icon" className="w-12 h-12 mx-auto mb-2" />
             <p>{isDragActive ? 'Drop your resume here...' : 'Upload your resume'}</p>
             <p>Drag and drop your resume here, or click to select a file.</p>

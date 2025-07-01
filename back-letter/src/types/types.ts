@@ -6,3 +6,4 @@ export type ApplicantProfileType = InferSchemaType<typeof applicantProfileSchema
 
 // hydrated document = mongoose document + typed fields
 export type ApplicantProfileDoc = HydratedDocument<ApplicantProfileType>;
+

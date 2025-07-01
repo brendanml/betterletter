@@ -13,7 +13,8 @@ const Auth = () => {
   return (
     <AuthFormProvider initialFormType="login">
       <div className="space-y-8 shadow-md p-6 w-full max-w-md mx-auto bg-[var(--background)] rounded-md">
-        <h1 className="text-2xl font-bold">Authpoint</h1>
+        <h1 className="text-2xl font-bold text-center mb-2">Better Letter</h1>
+        <p className="text-center">Please log in to your account</p>
 
         {/* renders <LoginForm /> or <RegisterForm /> based on context */}
         <AuthForm />

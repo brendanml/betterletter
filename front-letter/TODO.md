@@ -1,14 +1,13 @@
 # Better Letter
 
 # in progress
+- turn account page into form that can be submitted to update account
 
 # soon
 
 # complete
 
-## June 25
-
-- ....
+## Completed
 
 ## June 23
 

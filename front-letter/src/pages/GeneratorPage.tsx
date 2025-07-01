@@ -18,7 +18,7 @@ import {
 
 
 
-const PromptPage = () => {
+const GeneratorPage = () => {
 
   const form = useForm<CLGenerationForm>({
     defaultValues: {
@@ -43,62 +43,69 @@ const PromptPage = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <article className="flex flex-col w-[90%] m-auto">
       <div className="flex-1 overflow-y-auto">
         <div className="p-4">
-          <h1 className="text-2xl font-bold mb-4">Prompt Page</h1>
-          <p>This is the prompt page content.</p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <div className="p-4 rounded-lg shadow-md bg-white flex flex-col items-start w-full">
+
               <FormField
                 control={form.control}
                 name="resume"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Resume</FormLabel>
+                  <FormItem className="w-full">
                     <FormControl>
                       <PDFUploader
                         onFileChange={(file) => field.onChange(file)}
                         value={field.value}
-                      />
+                        />
                     </FormControl>
                     <FormMessage className="text-left"/>
                   </FormItem>
                 )}
-              />
+                />
+                </div>
+              <div className="p-4 border rounded-lg shadow-md bg-white flex flex-col items-start">
+
               <FormField
                 control={form.control}
                 name="jobPosting"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <FormLabel>Job posting</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Paste job ad…" {...field} />
+                      <Textarea placeholder="Paste job ad…" {...field} className="h-50"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+                />
+                </div>
+                <div className="p-4 border rounded-lg shadow-md bg-white flex flex-col items-start">
 
               <FormField
                 control={form.control}
                 name="userRequests"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <FormLabel>Extra requests</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="e.g. emphasise teamwork" className="h-80"{...field} />
+                      <Textarea placeholder="e.g. emphasise teamwork" className="h-30"{...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
-              />
-              <Button type="submit" variant="secondary">Submit</Button>
+                />
+                </div>
+              <Button type="submit" variant="secondary" className="bg-[var(--accent)]">Generate</Button>
             </form>
           </Form>
         </div>
       </div>
       <div>
+      <div className="p-4 border rounded-lg shadow-md bg-white flex flex-col items-start">
+
         <h1>Output</h1>
         <Textarea
           placeholder="Output will be displayed here..."
@@ -106,11 +113,12 @@ const PromptPage = () => {
           value={output}
           onChange={(e) => setOutput(e.target.value)}
           readOnly
-        />
+          />
       </div>
+          </div>
 
-    </div>
+    </article>
   );
 }
 
-export default PromptPage;
+export default GeneratorPage;

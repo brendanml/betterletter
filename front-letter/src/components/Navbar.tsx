@@ -5,14 +5,14 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-between p-4 bg-gray-200 text-black">
-      <div className="text-lg font-bold">Admin Panel</div>
+    <nav className="flex justify-between p-4 bg-[var(--background-secondary)] text-black w-full">
+      <div className="text-lg font-bold ">Better Letter</div>
       <div className="space-x-4">
         <Link to="/" className={`text-white ${location.pathname === '/' ? 'underline' : ''}`}>
           Home
         </Link>
-        <Link to="/prompt" className={`text-white ${location.pathname === '/account' ? 'underline' : ''}`}>
-          prompt
+        <Link to="/generate" className={`text-white ${location.pathname === '/account' ? 'underline' : ''}`}>
+          Generator
         </Link>
         <Link to="/login" className={`text-white ${location.pathname === '/login' ? 'underline' : ''}`}>
           Login

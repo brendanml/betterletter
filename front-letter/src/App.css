@@ -169,4 +169,8 @@
     /* originally was going to use variant-ghost but that removes all styles, instead make important classes to override shadcn with ! (not !important) */
     @apply !rounded-full !w-full !h-10 !text-base !bg-black;
   }
+
+  .btn-homepage {
+    @apply !rounded-md !h-12 w-40 !text-base;
+  }
 }

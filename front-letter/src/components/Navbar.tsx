@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex justify-between p-4 bg-[var(--background-secondary)] text-black w-full">
+    <nav className="flex justify-between p-4 border-b-1 text-black w-full">
       <div className="text-lg font-bold ">Better Letter</div>
       <div className="space-x-4">
         <Link to="/" className={`text-white ${location.pathname === '/' ? 'underline' : ''}`}>

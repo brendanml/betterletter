@@ -1,9 +1,14 @@
 # Better Letter
 
 # in progress
-- turn account page into form that can be submitted to update account
 
 # soon
+- link homepage UI to payment screen
+- deploy on azure
+
+# backburner
+
+- turn account page into form that can be submitted to update account
 
 # complete
 

@@ -98,7 +98,7 @@ const GeneratorPage = () => {
                 )}
                 />
                 </div>
-              <Button type="submit" variant="secondary" className="bg-[var(--accent)]">Generate</Button>
+              <Button type="submit" className="btn-homepage w-full">Generate</Button>
             </form>
           </Form>
         </div>

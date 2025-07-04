@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import GeneratorPage from './pages/GeneratorPage'
 import AccountPage from './pages/AccountPage'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 const App = () =>{
@@ -15,7 +16,7 @@ const App = () =>{
     <>
       <BrowserRouter>
       <Navbar />
-      <div className='mx-auto p-4'>
+      <div className='mx-auto'>
 
       <Routes>
         <Route path="/generate" element={<GeneratorPage />} />
@@ -28,9 +29,7 @@ const App = () =>{
       </Routes>
       </div>
       </BrowserRouter>
-      <footer className="text-center p-4 bg-gray-200">
-        <p>&copy; {new Date().getFullYear()} Better Letter</p>
-      </footer>
+      <Footer />
     </>
   )
 }

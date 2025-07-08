@@ -5,6 +5,7 @@
 html, body, #root {
   height: 100%;
   width: 100%;
+  scroll-behavior: smooth;
   margin: auto;
   background-color: var(--color-background);
   color: var(--color-text);

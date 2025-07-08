@@ -1,21 +1,26 @@
 // AccountPage.tsx
 import { useAuth } from "@/hooks/useAuth";
-// import { useForm } from "react-hook-form"
 import AccountUpdateForm from "@/components/forms/AccountUpdateForm";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
-import ApplicantProfile from "@/components/ApplicantProfile";
+// import ApplicantProfile from "@/components/ApplicantProfile";
 
 const AccountPage = () => {
   // avoid shadowing the type name; pick something like `user`
   const { data: user , isLoading, isError } = useAuth();
+  const navigate = useNavigate();
 
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen">Loading...</div>;
   }
   if (isError || !user) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <h1 className="text-2xl font-bold">Error: Unable to fetch user data</h1>
+      <div className="flex flex-col items-center  h-screen mt-10">
+        <h1 className="text-2xl font-bold">User not logged in.</h1>
+        <Button className="mt-4" onClick={() => navigate("/login")}>
+          Go to Login
+        </Button>
       </div>
     );
   }
@@ -27,7 +32,7 @@ const AccountPage = () => {
       <p className="text-lg">Email: {user.email}</p>
 
       <AccountUpdateForm/>
-      <ApplicantProfile />
+      {/* <ApplicantProfile /> */}
     </div>
   );
 };

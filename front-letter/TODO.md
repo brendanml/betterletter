@@ -2,7 +2,11 @@
 
 # in progress
 
+- pretty up home page
+
 # soon
+
+- make general links work
 - link homepage UI to payment screen
 - deploy on azure
 

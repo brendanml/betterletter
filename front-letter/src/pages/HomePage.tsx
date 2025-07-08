@@ -1,14 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/black-logo.svg"; // Adjust the path as necessary
 
-/**
- * Main entry component for the landing page.
- * Each major block (hero, features, blog, etc.) is extracted into its own
- * component so the layout is easy to tweak and test.
- *
- * Tailwind is used throughout; it assumes the colour tokens already defined in
- * your global CSS (e.g. bg-card, text-foreground) plus the default shades.
- */
 export default function HomePage() {
   return (
     <main className="font-sans text-base leading-relaxed">
@@ -23,8 +17,11 @@ export default function HomePage() {
 /*  Hero                                                                     */
 /* ------------------------------------------------------------------------- */
 
-const HeroSection: React.FC = () => (
-  <section className="relative bg-gradient-to-br from-white to-[#f8f9ff] px-6 pt-16 pb-24 md:px-14 lg:px-24">
+const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  return (
+  <section className="relative bg-gradient-to-br from-white to-[#f8f9ff] px-6 pt-16 pb-24 md:px-14 lg:px-24 flex flex-row flex-start justify-between items-start gap-8">
 
     <div className="mx-auto max-w-3xl text-left">
       <h1 className="mb-6 text-4xl font-bold md:text-5xl">
@@ -36,17 +33,23 @@ const HeroSection: React.FC = () => (
       </p>
       <div className="flex flex-col items-start gap-4 sm:flex-row">
         {/* TODO: ROUTE THESE BUTTONS */}
-        <Button className="btn-homepage">
+        <Button className="btn-homepage" onClick={() => navigate("/login")}>
           <span>Get Started</span>
           <ArrowRight />
         </Button>
-        <Button variant="outline" className="btn-homepage">
-          <span>Learn More</span>
+        <Button asChild variant="outline" className="btn-homepage">
+          <a href="#features">
+            <span>Learn More</span>
+          </a>
         </Button>
       </div>
     </div>
+    <div >
+      <img src={logo} alt="Logo" className="w-80"/>
+    </div>
   </section>
-);
+  )
+}
 
 /* ------------------------------------------------------------------------- */
 /*  Feature grid                                                             */
@@ -54,29 +57,28 @@ const HeroSection: React.FC = () => (
 
 const features = [
   {
-    title: "Tailored Cover Letters",
-    desc: "Our generator crafts letters that extract the most important details from a job description and your resume.",
+    title: "1. Resume Analysis",
+    desc: "Extracts key skills and experiences from your resume.",
   },
   {
-    title: "Full Resume Rewrite",
-    desc: "Premium magic gives your résumé a complete ATS‑friendly makeover.",
+    title: "2. Job Description Analysis",
+    desc: "Analyzes job postings to identify essential keywords and requirements.",
   },
   {
-    title: "Keyword Wizardry",
-    desc: "Sprinkle the right phrases to fly past the resume robots.",
+    title: "3. Cover Letter Generation",
+    desc: "Generates a tailored cover letter that highlights your strengths and matches the job requirements.",
   },
 ];
 
 const FeatureSection = () => (
-  <section className="bg-primary py-20 text-white">
+  <section className="bg-primary py-20 text-white" id="features">
     <div className="mx-auto mb-12 max-w-3xl px-4 text-center">
       <h2 className="mb-4 text-3xl font-semibold">
-        Resume Scanning Robots Defeated.
+        Advanced Cover Letter ATS Optimization
       </h2>
-      <p className="text-muted-foreground/80">
-        Most companies use Applicant Tracking Systems (ATS) to scan cover letters
-        before a human ever sees them. If your cover letter doesn't contain the right keywords, it might never
-        even be read.
+      <p className="text-muted-foreground/80 text-xl">
+        Our AI-powered generator creates custom tailored cover letters that highlight your unique skills and experiences and overlap with the job you are applying for.
+        <br />
       </p>
     </div>
 
@@ -96,7 +98,7 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, desc }) => (
   <div className="rounded-lg bg-card p-6 shadow-md transition hover:-translate-y-1 hover:shadow-lg">
-    <h3 className="mb-2 font-medium">{title}</h3>
+    <h3 className="mb-2 font-medium text-black">{title}</h3>
     <p className="text-sm text-muted-foreground">{desc}</p>
   </div>
 );
@@ -141,12 +143,13 @@ const plans = [
   },
 ];
 
-const PricingSection = () => (
-  <section className="py-24">
-    <div className="mx-auto mb-10 max-w-xl px-4 text-center">
-      <Sparkles className="mx-auto mb-6 h-8 w-8 text-primary" />
-      <h2 className="text-3xl font-semibold">Pick Your Plan.</h2>
-      <p className="text-muted-foreground">
+const PricingSection = () => {
+  return (
+    <section className="py-24" id="pricing">
+      <div className="mx-auto mb-10 max-w-xl px-4 text-center">
+        <Sparkles className="mx-auto mb-6 h-8 w-8 text-primary" />
+        <h2 className="text-3xl font-semibold">Pick Your Plan.</h2>
+        <p className="text-muted-foreground">
         Select the perfect plan for your career journey.
       </p>
     </div>
@@ -158,6 +161,7 @@ const PricingSection = () => (
     </div>
   </section>
 );
+}
 
 interface PricingCardProps {
   name: string;
@@ -170,6 +174,7 @@ interface PricingCardProps {
 
 const PricingCard: React.FC<PricingCardProps> = ({ name, price, note, perks, cta, popular }) => (
   <div
+
     className={
       "flex flex-col rounded-lg border p-6 shadow-sm transform transition hover:-translate-y-1 group-hover:-translate-y-2 hover:!bg-gray-50/70" +
       (popular ? " border-primary shadow-md" : "")
@@ -197,6 +202,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, note, perks, cta
     <Button
       className="btn-homepage mt-auto mx-auto w-full"
     >
+
       {cta}
     </Button>
   </div>
@@ -206,9 +212,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, note, perks, cta
 /*  Footer                                                                   */
 /* ------------------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------------- */
-/*  Icons (simple inline SVGs)                                               */
-/* ------------------------------------------------------------------------- */
 
 const ArrowRight = () => (
   <svg
